@@ -7,16 +7,15 @@ Rendog Launcher는 `rendog.kr` 서버에 접속하기 위한 전용 Minecraft �
 
 ## 프로젝트 구성
 
-| 폴더 | 연결 브랜치 | 역할 |
-| --- | --- | --- |
-| [`launcher/`](launcher/README.md) | `launcher` | 실제 Rendog Launcher 앱을 구현하는 프로젝트 |
-| [`installer/`](installer/README.md) | `installer` | Rendog Launcher를 설치하는 온라인 인스톨러 프로젝트 |
-| `work/` | 없음 | 임시 작업, 분석, 실험용 로컬 폴더 |
+| 리드미 | 역할 |
+| --- | --- |
+| [`launcher`](https://github.com/foliq/Rendog-Launcher/tree/launcher#rendog-launcher) | 실제 Rendog Launcher 앱을 구현하는 프로젝트 |
+| [`installer`](https://github.com/foliq/Rendog-Launcher/tree/installer#rendog-launcher-installer) | Rendog Launcher를 설치하는 온라인 인스톨러 프로젝트 |
 
 두 프로젝트는 하나의 제품 흐름을 나누어 담당합니다.
 
-- `installer/`는 사용자의 PC에 필요한 파일을 내려받고 검증한 뒤 설치합니다.
-- `launcher/`는 설치된 환경에서 Minecraft 1.20.4 클라이언트를 준비하고 RendogServer 접속 흐름을 실행합니다.
+- `installer`는 사용자의 PC에 필요한 파일을 내려받고 검증한 뒤 설치합니다.
+- `launcher`는 설치된 환경에서 Minecraft 1.20.4 클라이언트를 준비하고 RendogServer 접속 흐름을 실행합니다.
 
 ## 전체 실행 흐름
 
