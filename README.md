@@ -22,13 +22,16 @@ Rendog Launcher는 `rendog.kr` 서버에 접속하기 위한 전용 Minecraft �
 
 ```text
 RendogLauncherInstaller.exe
+  -> 시작 화면
   -> 설치 경로 선택
-  -> 관리자 권한으로 설치 시작
+  -> 설치 버튼에서 관리자 권한 요청 (UAC)
+  -> 승격된 프로세스가 같은 창 위치에서 설치 단계를 이어받음
   -> 온라인 매니페스트 기준으로 파일 다운로드
   -> 파일 크기와 SHA-256 검증
   -> Rendog Launcher 및 클라이언트 구성 파일 설치
   -> 바로가기와 제거 정보 등록
-  -> 선택 시 RendogLauncher.exe 실행
+  -> 완료 화면에서 바탕화면 바로가기 / 종료 후 런처 실행 선택
+  -> 종료 시 선택에 따라 RendogLauncher.exe 실행
 
 RendogLauncher.exe
   -> 런처와 클라이언트 파일 상태 확인
@@ -75,11 +78,15 @@ RendogClient Fabric mod
 
 ### Installer
 
-- Rust + Slint 기반 인스톨러 골격 구성
+- Rust + Slint 기반 인스톨러 UI 구현 (Figma 디자인 반영)
+- 시작 / 설치 경로 / 설치 / 완료 4단계 화면과 오류 화면 구성
 - `manifest.json` 기반 설치 컴포넌트 정의
 - 준비, 다운로드, 검증, 파일 설치, 완료 단계의 진행률 이벤트 구조 구현
 - 준비 완료 컴포넌트 다운로드 및 SHA-256 검증 흐름 구현
-- 바로가기 생성, 제거 정보 등록, 설치 후 실행은 다음 통합 단계로 예정
+- 설치 시작 시 UAC 승격 후 같은 창에서 설치를 이어가는 흐름 구현
+- 바탕화면 / 시작 메뉴 바로가기 생성, HKLM 제거 정보 등록 구현
+- 완료 화면 옵션(바탕화면 바로가기, 종료 후 런처 실행) 적용 및 런처 실행 구현
+- `RendogLauncher.exe` 아티팩트는 아직 `pending` 상태라 관련 단계는 자동으로 건너뜀
 
 ### Launcher
 
